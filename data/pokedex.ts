@@ -3908,8 +3908,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 26.5,
 		color: "Purple",
 		prevo: "Eevee",
-		evoType: "levelFriendship",
-		evoCondition: "during the day",
+		evoType: "useItem",
+		evoItem: "Sun Stone",
 		eggGroups: ["Field"],
 	},
 	umbreon: {
@@ -3923,8 +3923,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 27,
 		color: "Black",
 		prevo: "Eevee",
-		evoType: "levelFriendship",
-		evoCondition: "at night",
+		evoType: "useItem",
+		evoItem: "Moon Stone",
 		eggGroups: ["Field"],
 	},
 	murkrow: {
