@@ -12264,8 +12264,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 23.5,
 		color: "Pink",
 		prevo: "Eevee",
-		evoType: "levelExtra",
-		evoCondition: "with a Fairy-type move and two levels of Affection",
+		evoType: "useItem",
+		evoItem: "Shiny Stone",
 		eggGroups: ["Field"],
 	},
 	hawlucha: {
