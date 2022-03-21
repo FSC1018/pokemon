@@ -16448,7 +16448,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		changesFrom: "Enamorus",
 	},
 	spectreon: {
-		num: 134,
+		num: 906,
 		name: "Spectreon",
 		types: ["Ghost"],
 		genderRatio: {M: 0.875, F: 0.125},
