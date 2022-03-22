@@ -2028,20 +2028,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		gen: 6,
 		isNonstandard: "Past",
 	},
-	gengarite: {
-		name: "Gengarite",
-		spritenum: 588,
-		megaStone: "Gengar-Mega",
-		megaEvolves: "Gengar",
-		itemUser: ["Gengar"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
-		num: 656,
-		gen: 6,
-		isNonstandard: "Past",
-	},
 	ghostgem: {
 		name: "Ghost Gem",
 		spritenum: 161,
@@ -6810,285 +6796,85 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 276,
 		gen: 4,
 	},
-
-	// Gen 2 items
-
-	berserkgene: {
-		name: "Berserk Gene",
-		spritenum: 388,
-		onUpdate(pokemon) {
-			if (pokemon.useItem()) {
-				pokemon.addVolatile('confusion');
-			}
+	wateressence: {
+		name: "Water Essence",
+		spritenum: 529,
+		fling: {
+			basePower: 20,
 		},
-		boosts: {
-			atk: 2,
-		},
-		num: 0,
-		gen: 2,
-		isNonstandard: "Past",
+		num: 927,
+		gen: 9,
 	},
-	berry: {
-		name: "Berry",
-		spritenum: 319,
-		isBerry: true,
-		naturalGift: {
-			basePower: 80,
-			type: "Poison",
+	thunderessence: {
+		name: "Thunder Essence",
+		spritenum: 492,
+		fling: {
+			basePower: 20,
 		},
-		onResidualOrder: 5,
-		onResidual(pokemon) {
-			if (pokemon.hp <= pokemon.maxhp / 2) {
-				pokemon.eatItem();
-			}
-		},
-		onTryEatItem(item, pokemon) {
-			if (!this.runEvent('TryHeal', pokemon)) return false;
-		},
-		onEat(pokemon) {
-			this.heal(10);
-		},
-		num: 155,
-		gen: 2,
-		isNonstandard: "Past",
+		num: 928,
+		gen: 9,
 	},
-	bitterberry: {
-		name: "Bitter Berry",
-		spritenum: 334,
-		isBerry: true,
-		naturalGift: {
-			basePower: 80,
-			type: "Ground",
+	fireessence: {
+		name: "Fire Essence",
+		spritenum: 142,
+		fling: {
+			basePower: 20,
 		},
-		onUpdate(pokemon) {
-			if (pokemon.volatiles['confusion']) {
-				pokemon.eatItem();
-			}
-		},
-		onEat(pokemon) {
-			pokemon.removeVolatile('confusion');
-		},
-		num: 156,
-		gen: 2,
-		isNonstandard: "Past",
+		num: 929,
+		gen: 9,
 	},
-	burntberry: {
-		name: "Burnt Berry",
-		spritenum: 13,
-		isBerry: true,
-		naturalGift: {
-			basePower: 80,
-			type: "Ice",
+	leafessence: {
+		name: "Leaf Essence",
+		spritenum: 241,
+		fling: {
+			basePower: 20,
 		},
-		onUpdate(pokemon) {
-			if (pokemon.status === 'frz') {
-				pokemon.eatItem();
-			}
-		},
-		onEat(pokemon) {
-			if (pokemon.status === 'frz') {
-				pokemon.cureStatus();
-			}
-		},
-		num: 153,
-		gen: 2,
-		isNonstandard: "Past",
+		num: 930,
+		gen: 9,
 	},
-	goldberry: {
-		name: "Gold Berry",
-		spritenum: 448,
-		isBerry: true,
-		naturalGift: {
-			basePower: 80,
-			type: "Psychic",
+	iceessence: {
+		name: "Ice Essence",
+		spritenum: 693,
+		fling: {
+			basePower: 20,
 		},
-		onResidualOrder: 5,
-		onResidual(pokemon) {
-			if (pokemon.hp <= pokemon.maxhp / 2) {
-				pokemon.eatItem();
-			}
-		},
-		onTryEatItem(item, pokemon) {
-			if (!this.runEvent('TryHeal', pokemon)) return false;
-		},
-		onEat(pokemon) {
-			this.heal(30);
-		},
-		num: 158,
-		gen: 2,
-		isNonstandard: "Past",
+		num: 931,
+		gen: 9,
 	},
-	iceberry: {
-		name: "Ice Berry",
-		spritenum: 381,
-		isBerry: true,
-		naturalGift: {
-			basePower: 80,
-			type: "Grass",
+	psychicessence: {
+		name: "Pyschic Essence",
+		spritenum: 480,
+		fling: {
+			basePower: 20,
 		},
-		onUpdate(pokemon) {
-			if (pokemon.status === 'brn') {
-				pokemon.eatItem();
-			}
-		},
-		onEat(pokemon) {
-			if (pokemon.status === 'brn') {
-				pokemon.cureStatus();
-			}
-		},
-		num: 152,
-		gen: 2,
-		isNonstandard: "Past",
+		num: 932,
+		gen: 9,
 	},
-	mintberry: {
-		name: "Mint Berry",
-		spritenum: 65,
-		isBerry: true,
-		naturalGift: {
-			basePower: 80,
-			type: "Water",
+	darkessence: {
+		name: "Dark Essence",
+		spritenum: 295,
+		fling: {
+			basePower: 20,
 		},
-		onUpdate(pokemon) {
-			if (pokemon.status === 'slp') {
-				pokemon.eatItem();
-			}
-		},
-		onEat(pokemon) {
-			if (pokemon.status === 'slp') {
-				pokemon.cureStatus();
-			}
-		},
-		num: 150,
-		gen: 2,
-		isNonstandard: "Past",
+		num: 933,
+		gen: 9,
 	},
-	miracleberry: {
-		name: "Miracle Berry",
-		spritenum: 262,
-		isBerry: true,
-		naturalGift: {
-			basePower: 80,
-			type: "Flying",
+	ghostessence: {
+		name: "Ghost Essence",
+		spritenum: 116,
+		fling: {
+			basePower: 60,
 		},
-		onUpdate(pokemon) {
-			if (pokemon.status || pokemon.volatiles['confusion']) {
-				pokemon.eatItem();
-			}
-		},
-		onEat(pokemon) {
-			pokemon.cureStatus();
-			pokemon.removeVolatile('confusion');
-		},
-		num: 157,
-		gen: 2,
-		isNonstandard: "Past",
+		num: 934,
+		gen: 9,
 	},
-	mysteryberry: {
-		name: "Mystery Berry",
-		spritenum: 244,
-		isBerry: true,
-		naturalGift: {
-			basePower: 80,
-			type: "Fighting",
+		fairyessence: {
+		name: "Fairy Essence",
+		spritenum: 439,
+		fling: {
+			basePower: 60,
 		},
-		onUpdate(pokemon) {
-			if (!pokemon.hp) return;
-			const moveSlot = pokemon.lastMove && pokemon.getMoveData(pokemon.lastMove.id);
-			if (moveSlot && moveSlot.pp === 0) {
-				pokemon.addVolatile('leppaberry');
-				pokemon.volatiles['leppaberry'].moveSlot = moveSlot;
-				pokemon.eatItem();
-			}
-		},
-		onEat(pokemon) {
-			let moveSlot;
-			if (pokemon.volatiles['leppaberry']) {
-				moveSlot = pokemon.volatiles['leppaberry'].moveSlot;
-				pokemon.removeVolatile('leppaberry');
-			} else {
-				let pp = 99;
-				for (const possibleMoveSlot of pokemon.moveSlots) {
-					if (possibleMoveSlot.pp < pp) {
-						moveSlot = possibleMoveSlot;
-						pp = moveSlot.pp;
-					}
-				}
-			}
-			moveSlot.pp += 5;
-			if (moveSlot.pp > moveSlot.maxpp) moveSlot.pp = moveSlot.maxpp;
-			this.add('-activate', pokemon, 'item: Mystery Berry', moveSlot.move);
-		},
-		num: 154,
-		gen: 2,
-		isNonstandard: "Past",
+		num: 935,
+		gen: 9,
 	},
-	pinkbow: {
-		name: "Pink Bow",
-		spritenum: 444,
-		onBasePower(basePower, user, target, move) {
-			if (move.type === 'Normal') {
-				return basePower * 1.1;
-			}
-		},
-		num: 251,
-		gen: 2,
-		isNonstandard: "Past",
-	},
-	polkadotbow: {
-		name: "Polkadot Bow",
-		spritenum: 444,
-		onBasePower(basePower, user, target, move) {
-			if (move.type === 'Normal') {
-				return basePower * 1.1;
-			}
-		},
-		num: 251,
-		gen: 2,
-		isNonstandard: "Past",
-	},
-	przcureberry: {
-		name: "PRZ Cure Berry",
-		spritenum: 63,
-		isBerry: true,
-		naturalGift: {
-			basePower: 80,
-			type: "Fire",
-		},
-		onUpdate(pokemon) {
-			if (pokemon.status === 'par') {
-				pokemon.eatItem();
-			}
-		},
-		onEat(pokemon) {
-			if (pokemon.status === 'par') {
-				pokemon.cureStatus();
-			}
-		},
-		num: 149,
-		gen: 2,
-		isNonstandard: "Past",
-	},
-	psncureberry: {
-		name: "PSN Cure Berry",
-		spritenum: 333,
-		isBerry: true,
-		naturalGift: {
-			basePower: 80,
-			type: "Electric",
-		},
-		onUpdate(pokemon) {
-			if (pokemon.status === 'psn' || pokemon.status === 'tox') {
-				pokemon.eatItem();
-			}
-		},
-		onEat(pokemon) {
-			if (pokemon.status === 'psn' || pokemon.status === 'tox') {
-				pokemon.cureStatus();
-			}
-		},
-		num: 151,
-		gen: 2,
-		isNonstandard: "Past",
-	},
-
 	
