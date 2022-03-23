@@ -656,6 +656,20 @@ export const Conditions: {[k: string]: ConditionData} = {
 				return this.modify(def, 1.5);
 			}
 		},
+		onEffectivenessFirePriority: -1,
+		onEffectivenessFire(typeMod, target, type, move) {
+			if (move && move.effectType === 'Move' && move.category !== 'Status' && type === 'Ice' && move.type = 'Fire') {
+				this.add('-activate', '', 'hail');
+				return 0;
+			}
+		},
+		onEffectivenessIcePriority: -1,
+		onEffectivenessIce(typeMod, target, type, move) {
+			if (move && move.effectType === 'Move' && move.category !== 'Status' && type === 'Fire' && move.type = 'Ice') {
+				this.add('-activate', '', 'hail');
+				return 0;
+			}
+		},
 		onFieldStart(field, source, effect) {
 			if (effect?.effectType === 'Ability') {
 				if (this.gen <= 5) this.effectState.duration = 0;
