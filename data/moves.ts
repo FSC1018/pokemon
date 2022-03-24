@@ -5619,17 +5619,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 	freezedry: {
 		num: 573,
 		accuracy: 100,
-		basePower: 70,
+		basePower: 80,
 		category: "Special",
 		name: "Freeze-Dry",
 		pp: 20,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		onEffectiveness(typeMod, target, type) {
-			if (type === 'Water') return 1;
-		},
 		secondary: {
-			chance: 10,
+			chance: 20,
 			status: 'frz',
 		},
 		target: "normal",
